@@ -75,7 +75,8 @@ namespace SukiUI.Toasts
         /// </summary>
         public static SukiToastBuilder After(this SukiToastBuilder.DismissToast dismiss, TimeSpan after)
         {
-            dismiss.Builder.Delay(after, toast => dismiss.Builder.Manager.Dismiss(toast));
+            var manager = dismiss.Builder.Manager;
+            dismiss.Builder.Delay(after, toast => manager.Dismiss(toast));
             return dismiss.Builder;
         }
 

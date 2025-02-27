@@ -1,5 +1,3 @@
-using System;
-using System.Threading.Tasks;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Notifications;
@@ -9,11 +7,11 @@ using SukiUI.Helpers;
 
 namespace SukiUI.Toasts
 {
-    public class SukiToastBuilder
+    public readonly ref struct SukiToastBuilder
     {
         public ISukiToastManager Manager { get; }
         public ISukiToast Toast { get; }
-        
+
         public SukiToastBuilder(ISukiToastManager manager)
         {
             Manager = manager;
@@ -27,14 +25,31 @@ namespace SukiUI.Toasts
             return Toast;
         }
 
-        public void SetTitle(string title) => Toast.Title = title;
-        
-        public void SetContent(object? content) => Toast.Content = content;
-        
-        public void SetCanDismissByClicking(bool canDismiss) => Toast.CanDismissByClicking = canDismiss;
-        public void SetLoadingState(bool loading) => Toast.LoadingState = loading;
-        
-        public void SetType(NotificationType type)
+        public SukiToastBuilder SetTitle(string title)
+        {
+            Toast.Title = title;
+            return this;
+        }
+
+        public SukiToastBuilder SetContent(object? content)
+        {
+            Toast.Content = content;
+            return this;
+        }
+
+        public SukiToastBuilder SetCanDismissByClicking(bool canDismiss = true)
+        {
+            Toast.CanDismissByClicking = canDismiss;
+            return this;
+        }
+
+        public SukiToastBuilder SetLoadingState(bool loading)
+        {
+            Toast.LoadingState = loading;
+            return this;
+        }
+
+        public SukiToastBuilder SetType(NotificationType type)
         {
             Toast.Icon = type switch
             {
@@ -52,52 +67,58 @@ namespace SukiUI.Toasts
                 NotificationType.Error => NotificationColor.ErrorIconForeground,
                 _ => throw new ArgumentOutOfRangeException(nameof(type), type, null)
             };
+            return this;
         }
-        
-        
-        public void Delay(TimeSpan delay, Action<ISukiToast> action)
+
+        public SukiToastBuilder Delay(TimeSpan delay, Action<ISukiToast> action)
         {
             Toast.DelayDismissAction = action;
-            Task.Delay(delay).ContinueWith(_ =>
+            var toast = Toast;
+            Task.Delay(delay).ContinueWith(
+                _ =>
                 {
-                    if (Toast.DelayDismissAction != action) return;
-                    Toast.DelayDismissAction.Invoke(Toast);
-                }, 
+                    if (toast.DelayDismissAction != action) return;
+                    toast.DelayDismissAction.Invoke(toast);
+                },
                 TaskScheduler.FromCurrentSynchronizationContext());
+            return this;
         }
 
-        public void SetOnDismiss(Action<ISukiToast> action) => Toast.OnDismissed = action;
-
-        public void SetOnClicked(Action<ISukiToast> action) => Toast.OnClicked = action;
-        
-        public void AddActionButton(object buttonContent, Action<ISukiToast> action, bool dismissOnClick, bool flatstyle = true)
+        public SukiToastBuilder SetOnDismiss(Action<ISukiToast> action)
         {
-            Button btn = new Button()
-                {
-                    Content = buttonContent,
-                    Classes = { flatstyle ?"Flat" : "Basic" },
-                    Margin = flatstyle ? new Thickness(14, 9, 0, 12) : new Thickness(14, -3, 0, 2)
-                };
-            
-           
+            Toast.OnDismissed = action;
+            return this;
+        }
 
+        public SukiToastBuilder SetOnClicked(Action<ISukiToast> action)
+        {
+            Toast.OnClicked = action;
+            return this;
+        }
+
+        public SukiToastBuilder AddActionButton(object buttonContent, Action<ISukiToast> action, bool dismissOnClick, bool flatStyle = true)
+        {
+            var btn = new Button
+            {
+                Content = buttonContent,
+                Classes = { flatStyle ? "Flat" : "Basic" },
+                Margin = flatStyle ? new Thickness(14, 9, 0, 12) : new Thickness(14, -3, 0, 2)
+            };
+
+            var (toast, manager) = (Toast, Manager);
             btn.Click += (_, _) =>
             {
-                action(Toast);
-                if(dismissOnClick)
-                    Manager.Dismiss(Toast);
+                action(toast);
+                if (dismissOnClick) manager.Dismiss(toast);
             };
             Toast.ActionButtons.Add(btn);
+
+            return this;
         }
 
-        public class DismissToast
+        public readonly ref struct DismissToast(SukiToastBuilder builder)
         {
-            public SukiToastBuilder Builder { get; }
-            
-            public DismissToast(SukiToastBuilder builder)
-            {
-                Builder = builder;
-            }
+            public SukiToastBuilder Builder { get; } = builder;
         }
     }
 }

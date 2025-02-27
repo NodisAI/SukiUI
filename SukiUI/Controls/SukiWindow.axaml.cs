@@ -51,6 +51,15 @@ public class SukiWindow : Window
         set => SetValue(LogoContentProperty, value);
     }
 
+    public static readonly StyledProperty<Control?> TitleBarContentProperty =
+        AvaloniaProperty.Register<SukiWindow, Control?>(nameof(TitleBarContent));
+
+    public Control? TitleBarContent
+    {
+        get => GetValue(TitleBarContentProperty);
+        set => SetValue(TitleBarContentProperty, value);
+    }
+
     public static readonly StyledProperty<bool> ShowBottomBorderProperty =
         AvaloniaProperty.Register<SukiWindow, bool>(nameof(ShowBottomBorder), defaultValue: true);
 
