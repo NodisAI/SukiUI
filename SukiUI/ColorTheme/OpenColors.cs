@@ -1,0 +1,23 @@
+﻿using Avalonia.Media;
+
+namespace SukiUI.ColorTheme
+{
+    public static class OpenColors
+    {
+        public static Color[] Column6 { get; } =
+        [
+            Color.FromRgb(0xfa, 0x52, 0x52),
+            Color.FromRgb(0xe6, 0x49, 0x80),
+            Color.FromRgb(0xbe, 0x4b, 0xdb),
+            Color.FromRgb(0x79, 0x50, 0xf2),
+            Color.FromRgb(0x4c, 0x6e, 0xf5),
+            Color.FromRgb(0x22, 0x8b, 0xe6),
+            Color.FromRgb(0x15, 0xaa, 0xbf),
+            Color.FromRgb(0x12, 0xb8, 0x86),
+            Color.FromRgb(0x40, 0xc0, 0x57),
+            Color.FromRgb(0x82, 0xc9, 0x1e),
+            Color.FromRgb(0xfa, 0xb0, 0x05),
+            Color.FromRgb(0xfd, 0x7e, 0x14),
+        ];
+    }
+}
