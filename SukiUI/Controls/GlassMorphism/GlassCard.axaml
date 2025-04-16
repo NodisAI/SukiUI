@@ -17,16 +17,16 @@
                         CornerRadius="{TemplateBinding CornerRadius}"
                         Opacity="{DynamicResource GlassOpacity}"
                         RenderTransformOrigin="50%,50%">
-                        <Border.Transitions>
-                            <Transitions>
-                                <DoubleTransition
-                                    Easing="QuadraticEaseOut" Property="Width"
-                                    Duration="0:0:0.5"/>
-                                <DoubleTransition
-                                    Easing="QuadraticEaseOut" Property="Height"
-                                    Duration="0:0:0.5"/>
-                            </Transitions>
-                        </Border.Transitions>
+                        <!-- <Border.Transitions> -->
+                        <!--     <Transitions> -->
+                        <!--  <DoubleTransition  -->
+                        <!--  Easing="QuadraticEaseOut" Property="Width"  -->
+                        <!--  Duration="0:0:0.5"/>  -->
+                        <!--  <DoubleTransition  -->
+                        <!--  Easing="QuadraticEaseOut" Property="Height"  -->
+                        <!--  Duration="0:0:0.5"/>  -->
+                        <!--     </Transitions> -->
+                        <!-- </Border.Transitions> -->
                         <Border.Transitions>
                             <Transitions>
                                 <!-- <BrushTransition Property="Background" Duration="0:0:0.15" /> -->
