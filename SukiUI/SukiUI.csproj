@@ -71,6 +71,8 @@
     <UpToDateCheckInput Remove="Controls\PropertyGrid\PropertyGridDialog.axaml" />
     <UpToDateCheckInput Remove="Controls\PropertyGrid\PropertyGridTemplateSelector.axaml" />
     <UpToDateCheckInput Remove="Controls\PropertyGrid\PropertyGridWindow.axaml" />
+    <UpToDateCheckInput Remove="Theme\Shadcn\BlackWhiteTheme.axaml" />
+    <UpToDateCheckInput Remove="Theme\Shadcn\ShadDarkStyles.axaml" />
   </ItemGroup>
 
   <ItemGroup>

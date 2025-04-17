@@ -1,12 +1,11 @@
 using Avalonia;
+using Avalonia.Collections;
 using Avalonia.Controls;
+using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Controls.Primitives;
 using Avalonia.Input;
-using Avalonia.Media;
-using System;
-using Avalonia.Collections;
-using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Interactivity;
+using Avalonia.Media;
 using SukiUI.Enums;
 
 namespace SukiUI.Controls;
@@ -60,15 +59,6 @@ public class SukiWindow : Window
         set => SetValue(TitleBarContentProperty, value);
     }
 
-    public static readonly StyledProperty<bool> ShowBottomBorderProperty =
-        AvaloniaProperty.Register<SukiWindow, bool>(nameof(ShowBottomBorder), defaultValue: true);
-
-    public bool ShowBottomBorder
-    {
-        get => GetValue(ShowBottomBorderProperty);
-        set => SetValue(ShowBottomBorderProperty, value);
-    }
-
     public static readonly StyledProperty<bool> IsTitleBarVisibleProperty =
         AvaloniaProperty.Register<SukiWindow, bool>(nameof(IsTitleBarVisible), defaultValue: true);
 
@@ -87,15 +77,6 @@ public class SukiWindow : Window
         set => SetValue(TitleBarAnimationEnabledProperty, value);
     }
 
-    public static readonly StyledProperty<bool> IsMenuVisibleProperty =
-        AvaloniaProperty.Register<SukiWindow, bool>(nameof(IsMenuVisible), defaultValue: false);
-
-    public bool IsMenuVisible
-    {
-        get => GetValue(IsMenuVisibleProperty);
-        set => SetValue(IsMenuVisibleProperty, value);
-    }
-
     public static readonly StyledProperty<AvaloniaList<MenuItem>?> MenuItemsProperty =
         AvaloniaProperty.Register<SukiWindow, AvaloniaList<MenuItem>?>(nameof(MenuItems));
 
@@ -112,14 +93,6 @@ public class SukiWindow : Window
     {
         get => GetValue(CanMinimizeProperty);
         set => SetValue(CanMinimizeProperty, value);
-    }
-    
-    public static readonly StyledProperty<bool> ShowTitlebarBackgroundProperty =
-        AvaloniaProperty.Register<SukiWindow, bool>(nameof(ShowTitlebarBackground), defaultValue: true);
-    public bool ShowTitlebarBackground
-    {
-        get => GetValue(ShowTitlebarBackgroundProperty);
-        set => SetValue(ShowTitlebarBackgroundProperty, value);
     }
 
     public static readonly StyledProperty<bool> CanMaximizeProperty =

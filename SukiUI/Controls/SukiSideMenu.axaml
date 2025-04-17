@@ -15,7 +15,7 @@
                     IsPaneOpen="{TemplateBinding IsMenuExpanded, Mode=TwoWay}"
                     OpenPaneLength="{TemplateBinding OpenPaneLength}">
                     <SplitView.Pane>
-                        <Border Margin="{Binding ShowTitlebarBackground, Converter={x:Static suki:WindowBackgroundToMarginConverter.Instance}, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type suki:SukiWindow}}}">
+                        <Border>
                             <Grid Background="{TemplateBinding Background}">
                                 <Grid.Styles>
                                     <Style Selector="suki|GlassCard">
@@ -26,15 +26,14 @@
                                 </Grid.Styles>
                                 <suki:GlassCard
                                     Name="Glass" BorderThickness="0,0,1,0"
-                                    CornerRadius="{Binding ShowTitlebarBackground, Converter={x:Static suki:WindowBackgroundToCornerRadiusConverter.Instance}, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type suki:SukiWindow}}}"
                                     IsAnimated="False"/>
                                 <DockPanel>
                                     <Button
                                         Name="PART_SidebarToggleButton" DockPanel.Dock="Top"
-                                        Margin="7"
-                                        HorizontalAlignment="{TemplateBinding TogglePaneButtonPosition}"
-                                        VerticalAlignment="Top" Classes="Basic"
-                                        Cursor="Hand"
+                                        Margin="7" HorizontalAlignment="Stretch"
+                                        VerticalAlignment="Top"
+                                        HorizontalContentAlignment="{TemplateBinding TogglePaneButtonPosition}"
+                                        Classes="Basic" Cursor="Hand"
                                         IsVisible="{TemplateBinding SidebarToggleEnabled}">
                                         <Panel>
                                             <PathIcon

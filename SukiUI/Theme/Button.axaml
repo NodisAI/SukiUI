@@ -32,8 +32,7 @@
                     </Border.Resources>
                     <StackPanel HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Orientation="Horizontal">
                         <Viewbox
-                            Width="{TemplateBinding theme:ButtonExtensions.ShowProgress,
-                                                    Converter={StaticResource WidthConverter}}"
+                            Width="{TemplateBinding theme:ButtonExtensions.ShowProgress, Converter={StaticResource WidthConverter}}"
                             Height="24" Margin="0,-5">
                             <Viewbox.Transitions>
                                 <Transitions>
@@ -496,7 +495,7 @@
             <Style Selector="^.Close">
                 <Setter Property="Background" Value="{DynamicResource SukiAccentColor0}"/>
                 <Style Selector="^:pointerover">
-                    <Setter Property="Background" Value="{DynamicResource SukiAccentColor25}"/>
+                    <Setter Property="Background" Value="#C42B1C"/>
                 </Style>
             </Style>
         </Style>
