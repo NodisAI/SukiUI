@@ -9,12 +9,21 @@ using SukiUI.Enums;
 
 namespace SukiUI.Controls;
 
-public class InfoBadge: HeaderedContentControl
+public class InfoBadge : HeaderedContentControl
 {
     private Border? _badgeContainer;
-    
+
+    public static readonly StyledProperty<bool> IsHeaderVisibleProperty =
+        AvaloniaProperty.Register<InfoBadge, bool>(nameof(IsHeaderVisible));
+
+    public bool IsHeaderVisible
+    {
+        get => GetValue(IsHeaderVisibleProperty);
+        set => SetValue(IsHeaderVisibleProperty, value);
+    }
+
     public static readonly StyledProperty<NotificationType> AppearanceProperty =
-        AvaloniaProperty.Register<InfoBadge, NotificationType>(nameof(Appearance), NotificationType.Information);
+        AvaloniaProperty.Register<InfoBadge, NotificationType>(nameof(Appearance));
 
     public NotificationType Appearance
     {
@@ -29,32 +38,36 @@ public class InfoBadge: HeaderedContentControl
                 NotificationType.Error => NotificationColor.ErrorIconForeground,
                 _ => NotificationColor.InfoIconForeground
             };
-            
+
             SetValue(AppearanceProperty, value);
         }
     }
 
-    public static readonly StyledProperty<CornerPosition> CornerPositionProperty = AvaloniaProperty.Register<InfoBadge, CornerPosition>(
-        nameof(CornerPosition));
+    public static readonly StyledProperty<CornerPosition> CornerPositionProperty =
+        AvaloniaProperty.Register<InfoBadge, CornerPosition>(nameof(CornerPosition));
+
     public CornerPosition CornerPosition
     {
         get => GetValue(CornerPositionProperty);
         set => SetValue(CornerPositionProperty, value);
     }
-    
-    public static readonly StyledProperty<bool> IsDotProperty = AvaloniaProperty.Register<InfoBadge, bool>(
-        nameof(IsDot), false);
+
+    public static readonly StyledProperty<bool> IsDotProperty =
+        AvaloniaProperty.Register<InfoBadge, bool>(nameof(IsDot));
+
     public bool IsDot
     {
         get => GetValue(IsDotProperty);
-        set {
+        set
+        {
             UpdateBadgePosition();
             SetValue(IsDotProperty, value);
         }
     }
 
-    public static readonly StyledProperty<int> OverflowProperty = AvaloniaProperty.Register<InfoBadge, int>(
-        nameof(Overflow));
+    public static readonly StyledProperty<int> OverflowProperty =
+        AvaloniaProperty.Register<InfoBadge, int>(nameof(Overflow));
+
     public int Overflow
     {
         get => GetValue(OverflowProperty);
@@ -97,15 +110,15 @@ public class InfoBadge: HeaderedContentControl
         {
             horizontalOffset = 1;
         }
-        
+
         if (_badgeContainer is not null && Presenter?.Child is not null)
         {
             _badgeContainer.RenderTransform = new TransformGroup
             {
-                Children = new Transforms
-                {
-                    new TranslateTransform(horizontalOffset*_badgeContainer.Bounds.Width / 2,verticalOffset*_badgeContainer.Bounds.Height / 2)
-                }
+                Children =
+                [
+                    new TranslateTransform(horizontalOffset * _badgeContainer.Bounds.Width / 2, verticalOffset * _badgeContainer.Bounds.Height / 2),
+                ]
             };
         }
     }

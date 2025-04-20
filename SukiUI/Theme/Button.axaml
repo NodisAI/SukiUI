@@ -23,16 +23,13 @@
                     TextElement.Foreground="{TemplateBinding Foreground}">
                     <Border.Transitions>
                         <Transitions>
-                            <DoubleTransition Property="Opacity" Duration="0:0:0.35">
-                            </DoubleTransition>
+                            <DoubleTransition Property="Opacity" Duration="0:0:0.35"/>
                         </Transitions>
                     </Border.Transitions>
-                    <Border.Resources>
-                        <theme:BoolToWidthProgressConverter x:Key="WidthConverter"/>
-                    </Border.Resources>
+
                     <StackPanel HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Orientation="Horizontal">
                         <Viewbox
-                            Width="{TemplateBinding theme:ButtonExtensions.ShowProgress, Converter={StaticResource WidthConverter}}"
+                            Width="{TemplateBinding theme:ButtonExtensions.ShowProgress, Converter={x:Static suki:ButtonExtensionBoolToWidthConverter.Instance}}"
                             Height="24" Margin="0,-5">
                             <Viewbox.Transitions>
                                 <Transitions>
@@ -41,8 +38,8 @@
                             </Viewbox.Transitions>
 
                             <ContentPresenter Content="{TemplateBinding theme:ButtonExtensions.ShowProgress, Converter={x:Static suki:ProgressToContentConverter.Instance}}"/>
-
                         </Viewbox>
+
                         <ContentPresenter
                             HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                             VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
@@ -495,7 +492,7 @@
             <Style Selector="^.Close">
                 <Setter Property="Background" Value="{DynamicResource SukiAccentColor0}"/>
                 <Style Selector="^:pointerover">
-                    <Setter Property="Background" Value="#C42B1C"/>
+                    <Setter Property="Background" Value="{DynamicResource SukiAccentColor25}"/>
                 </Style>
             </Style>
         </Style>

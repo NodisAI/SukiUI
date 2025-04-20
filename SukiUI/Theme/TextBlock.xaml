@@ -2,10 +2,10 @@
     <ControlTheme x:Key="SukiTextBlockStyle" TargetType="TextBlock">
         <Setter Property="FontSize" Value="14"/>
         <Style Selector="^.h6">
-            <Setter Property="FontSize" Value="10"/>
+            <Setter Property="FontSize" Value="12"/>
         </Style>
         <Style Selector="^.h5">
-            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="FontSize" Value="16"/>
         </Style>
         <Style Selector="^.h4">
             <Setter Property="Margin" Value="0 7 0 10"/>

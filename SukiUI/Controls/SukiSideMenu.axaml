@@ -29,16 +29,16 @@
                                     IsAnimated="False"/>
                                 <DockPanel>
                                     <Button
-                                        Name="PART_SidebarToggleButton" DockPanel.Dock="Top"
-                                        Margin="7" HorizontalAlignment="Stretch"
-                                        VerticalAlignment="Top"
+                                        Name="PART_SidebarToggleButton" Classes="Basic"
+                                        DockPanel.Dock="Top" Margin="7"
+                                        HorizontalAlignment="Stretch" VerticalAlignment="Top"
                                         HorizontalContentAlignment="{TemplateBinding TogglePaneButtonPosition}"
-                                        Classes="Basic" Cursor="Hand"
+                                        Cursor="Hand"
                                         IsVisible="{TemplateBinding SidebarToggleEnabled}">
                                         <Panel>
                                             <PathIcon
-                                                Name="PART_ExpandIcon" Width="12"
-                                                Height="12" Classes="Flippable"
+                                                Name="PART_ExpandIcon" Classes="Flippable"
+                                                Width="12" Height="12"
                                                 Data="{x:Static content:Icons.ChevronLeft}"
                                                 Foreground="{DynamicResource SukiText}">
                                                 <PathIcon.Transitions>
@@ -57,8 +57,7 @@
                                     </Grid>
                                     <ContentControl
                                         DockPanel.Dock="Bottom" Margin="0,0,0,12"
-                                        Content="{TemplateBinding FooterContent}"
-                                        IsVisible="{TemplateBinding IsMenuExpanded}"/>
+                                        Content="{TemplateBinding FooterContent}"/>
                                     <Grid
                                         Name="PART_Spacer" DockPanel.Dock="Top"
                                         Height="15"/>
@@ -72,9 +71,9 @@
                                                 </Style>
                                             </StackPanel.Styles>
                                             <suki:GlassCard
-                                                Width="42" Height="42"
-                                                Margin="15,10,15,15" HorizontalAlignment="Right"
-                                                Classes="Search" CornerRadius="22"
+                                                Classes="Search" Width="42"
+                                                Height="42" Margin="15,10,15,15"
+                                                HorizontalAlignment="Right" CornerRadius="22"
                                                 IsAnimated="False"
                                                 IsVisible="{TemplateBinding IsMenuExpanded}">
                                                 <suki:GlassCard.Transitions>
@@ -92,8 +91,8 @@
                                                         Data="{x:Static content:Icons.Search}"
                                                         Foreground="{DynamicResource SukiLowText}"/>
                                                     <TextBox
-                                                        theme:TextBoxExtensions.AddDeleteButton="True" BorderThickness="0"
-                                                        Classes="NoShadow"
+                                                        Classes="NoShadow" theme:TextBoxExtensions.AddDeleteButton="True"
+                                                        BorderThickness="0"
                                                         Text="{TemplateBinding SearchText, Mode=TwoWay}"
                                                         Watermark="Search"/>
                                                 </DockPanel>
@@ -102,11 +101,10 @@
                                             <!--  <Border Height="1" Margin="20,0,20,15" Background="{DynamicResource SukiBorderBrush}"/> -->
                                         </StackPanel>
                                         <ScrollViewer
-                                            Name="PART_ScrollViewer"
+                                            Name="PART_ScrollViewer" Classes="Stack"
                                             AllowAutoHide="{TemplateBinding (ScrollViewer.AllowAutoHide)}"
                                             Background="{TemplateBinding Background}"
                                             BringIntoViewOnFocusChange="{TemplateBinding (ScrollViewer.BringIntoViewOnFocusChange)}"
-                                            Classes="Stack"
                                             HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
                                             HorizontalSnapPointsType="{TemplateBinding (ScrollViewer.HorizontalSnapPointsType)}"
                                             IsScrollChainingEnabled="{TemplateBinding (ScrollViewer.IsScrollChainingEnabled)}"
