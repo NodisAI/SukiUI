@@ -111,7 +111,7 @@
                             VerticalAlignment="Top"
                             Background="{TemplateBinding Background}"
                             CornerRadius="{TemplateBinding CornerRadius}"
-                            IsVisible="{Binding !!Header, RelativeSource={RelativeSource TemplatedParent}}"/>
+                            IsVisible="{Binding Header, RelativeSource={RelativeSource TemplatedParent}, Converter={x:Static ObjectConverters.IsNotNull}}"/>
                     </Grid>
                 </ControlTemplate>
             </Setter>
