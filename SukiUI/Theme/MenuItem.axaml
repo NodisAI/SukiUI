@@ -1,11 +1,18 @@
 <ResourceDictionary
     xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:content="clr-namespace:SukiUI.Content" xmlns:converters="clr-namespace:Avalonia.Controls.Converters;assembly=Avalonia.Controls"
+    xmlns:content="clr-namespace:SukiUI.Content"
+    xmlns:converters="clr-namespace:Avalonia.Controls.Converters;assembly=Avalonia.Controls"
     xmlns:system="clr-namespace:System;assembly=netstandard">
+    <Design.PreviewWith>
+        <Menu>
+            <MenuItem Header="Manbo"/>
+            <MenuItem Header="Wuhooo"/>
+        </Menu>
+    </Design.PreviewWith>
+
     <converters:PlatformKeyGestureConverter x:Key="KeyGestureConverter"/>
 
     <ControlTheme x:Key="SukiMenuItemStyle" TargetType="MenuItem">
-
         <Setter Property="Background" Value="{DynamicResource SukiBackground}"/>
         <Setter Property="BorderThickness" Value="1.5"/>
         <Setter Property="FontSize" Value="14"/>
@@ -17,9 +24,10 @@
                     Name="root"
                     Background="{TemplateBinding Background}"
                     BorderBrush="{TemplateBinding BorderBrush}"
-                    ClipToBounds="True">
+                    ClipToBounds="True"
+                    CornerRadius="{TemplateBinding CornerRadius}">
                     <Panel>
-                        <DockPanel Margin="5,10">
+                        <DockPanel Margin="{TemplateBinding Padding}">
                             <ContentPresenter
                                 Name="PART_Icon" DockPanel.Dock="Left"
                                 Width="15" Height="15"
@@ -27,10 +35,10 @@
                                 VerticalAlignment="Center"
                                 Content="{TemplateBinding Icon}"/>
                             <PathIcon
-                                Name="PART_RightArrow" DockPanel.Dock="Right"
-                                Width="8" Height="8"
-                                Margin="5,0,10,0" HorizontalAlignment="Right"
-                                VerticalAlignment="Center" Classes="Flippable"
+                                Name="PART_RightArrow" Classes="Flippable"
+                                DockPanel.Dock="Right" Width="8"
+                                Height="8" Margin="5,0,10,0"
+                                HorizontalAlignment="Right" VerticalAlignment="Center"
                                 Data="{x:Static content:Icons.ChevronRight}"
                                 Foreground="{DynamicResource SukiText}"/>
                             <ContentPresenter
