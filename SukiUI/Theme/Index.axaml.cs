@@ -1,22 +1,19 @@
+using System.Globalization;
 using Avalonia;
 using Avalonia.Collections;
+using Avalonia.Controls;
 using Avalonia.Data;
 using Avalonia.Markup.Xaml;
 using Avalonia.Media;
 using Avalonia.Styling;
 using SukiUI.Enums;
 using SukiUI.Extensions;
-using SukiUI.Models;
-using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using Avalonia.Controls;
 using SukiUI.Locale;
+using SukiUI.Models;
 
 namespace SukiUI;
 
-public partial class SukiTheme : Styles
+public class SukiTheme : Styles
 {
     public static readonly StyledProperty<SukiColor> ThemeColorProperty =
         AvaloniaProperty.Register<SukiTheme, SukiColor>(nameof(Color), defaultBindingMode: BindingMode.OneTime,
@@ -139,9 +136,8 @@ public partial class SukiTheme : Styles
     /// <param name="sukiColorTheme">New <see cref="SukiColorTheme"/> to add.</param>
     public void AddColorTheme(SukiColorTheme sukiColorTheme)
     {
-        if (_colorThemeHashset.Contains(sukiColorTheme))
+        if (!_colorThemeHashset.Add(sukiColorTheme))
             throw new InvalidOperationException("This color theme has already been added.");
-        _colorThemeHashset.Add(sukiColorTheme);
         _allThemes.Add(sukiColorTheme);
     }
 
@@ -242,7 +238,7 @@ public partial class SukiTheme : Styles
             new DefaultSukiColorTheme(SukiColor.Green, Color.Parse("#537834"), Color.Parse("#B24DB0")),
             new DefaultSukiColorTheme(SukiColor.Blue, Color.Parse("#0A59F7"), Color.Parse("#F7A80A")),
         };
-        DefaultColorThemes = defaultThemes.ToDictionary(x => x.ThemeColor, y => (SukiColorTheme)y);
+        DefaultColorThemes = defaultThemes.ToDictionary(x => x.ThemeColor, SukiColorTheme (y) => y);
     }
 
     /// <summary>
