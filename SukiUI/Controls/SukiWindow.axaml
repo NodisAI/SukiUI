@@ -34,7 +34,7 @@
                                     <Panel>
                                         <suki:GlassCard
                                             Name="PART_TitleBarBackground" BorderThickness="0"
-                                            CornerRadius="0" IsAnimated="False"/>
+                                            CornerRadius="0"/>
                                         <DockPanel LastChildFill="True">
                                             <StackPanel
                                                 DockPanel.Dock="Right" VerticalAlignment="Center"

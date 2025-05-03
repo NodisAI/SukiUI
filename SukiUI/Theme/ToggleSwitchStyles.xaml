@@ -110,8 +110,7 @@
                         <suki:GlassCard 
                             Grid.Row="1"
                             Width="40" Classes="Control"
-                            Height="22" IsAnimated="False"
-                        
+                            Height="22"
                             BorderThickness="0"
                             CornerRadius="{DynamicResource MediumCornerRadius}">
                             

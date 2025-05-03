@@ -25,8 +25,7 @@
                                     </Style>
                                 </Grid.Styles>
                                 <suki:GlassCard
-                                    Name="Glass" BorderThickness="0,0,1,0"
-                                    IsAnimated="False"/>
+                                    Name="Glass" BorderThickness="0,0,1,0"/>
                                 <DockPanel>
                                     <Button
                                         Name="PART_SidebarToggleButton" Classes="Basic"
@@ -74,7 +73,6 @@
                                                 Classes="Search" Width="42"
                                                 Height="42" Margin="15,10,15,15"
                                                 HorizontalAlignment="Right" CornerRadius="22"
-                                                IsAnimated="False"
                                                 IsVisible="{TemplateBinding IsMenuExpanded}">
                                                 <suki:GlassCard.Transitions>
                                                     <Transitions>
