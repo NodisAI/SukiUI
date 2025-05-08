@@ -1,12 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.Reflection;
 using System.Text;
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
-using Avalonia.Media;
 using Avalonia.Styling;
 using SkiaSharp;
 using SukiUI.Extensions;
@@ -21,17 +16,15 @@ namespace SukiUI.Utilities.Effects
     {
         // Basic uniforms passed into the shader from the CPU.
         private static readonly string[] Uniforms =
-        {
+        [
             "uniform float iTime;",
             "uniform float iDark;",
             "uniform float iAlpha;",
             "uniform vec3 iResolution;",
             "uniform vec3 iPrimary;",
             "uniform vec3 iAccent;",
-            "uniform vec3 iBase;"
-        };
-
-        private static readonly List<SukiEffect> LoadedEffects = new();
+            "uniform vec3 iBase;",
+        ];
 
         private readonly string _rawShaderString;
         private readonly string _shaderString;
@@ -49,12 +42,6 @@ namespace SukiUI.Utilities.Effects
             Effect = compiledEffect ?? throw new ShaderCompilationException(errors);
         }
 
-        static SukiEffect()
-        {
-            if (Application.Current.ApplicationLifetime is IControlledApplicationLifetime controlled)
-                controlled.Exit += (_, _) => EnsureDisposed();
-        }
-
         /// <summary>
         /// Attempts to load and compile a ".sksl" shader file from the assembly.
         /// You don't need to provide the extension.
@@ -69,9 +56,7 @@ namespace SukiUI.Utilities.Effects
             if (!shaderName.EndsWith(".sksl"))
                 shaderName += ".sksl";
 
-
-
-            var assembly = Assembly.GetEntryAssembly();
+            var assembly = Assembly.GetEntryAssembly()!;
             var resName = assembly?.GetManifestResourceNames()
                 .FirstOrDefault(x => x.ToLowerInvariant().Contains(shaderName));
             
@@ -114,24 +99,7 @@ namespace SukiUI.Utilities.Effects
             return new SukiEffect(withUniforms, shaderString);
         }
 
-
-        private static bool _disposed;
-
-        /// <summary>
-        /// Necessary to make sure all the unmanaged effects are disposed.
-        /// </summary>
-        internal static void EnsureDisposed()
-        {
-            if (_disposed)
-                throw new InvalidOperationException(
-                    "SukiEffects should only be disposed once at the app lifecycle end.");
-            _disposed = true;
-            foreach (var loaded in LoadedEffects)
-                loaded.Effect.Dispose();
-            LoadedEffects.Clear();
-        }
-
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (obj is not SukiEffect effect) return false;
             return effect._shaderString == _shaderString;

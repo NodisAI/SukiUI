@@ -16,12 +16,11 @@
         <Setter Property="BorderBrush" Value="{DynamicResource SukiControlBorderBrush}" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="Padding" Value="18,10,18,8" />
-        <Setter Property="FontWeight" Value="{DynamicResource DefaultDemiBold}" />
         <Setter Property="FontSize" Value="14" />
         <Setter Property="Foreground" Value="{DynamicResource SukiText}" />
         <Setter Property="Transitions">
             <Transitions>
-              
+
                 <BrushTransition Property="BorderBrush" Duration="0:0:0.15" />
             </Transitions>
         </Setter>
@@ -312,7 +311,7 @@
             </Animation>
         </Style.Animations>
         <Setter Property="Width" Value="20" />
-    </Style>    -->
+    </Style>-->
 
     <Style Selector="ToggleButton.Switch:checked /template/ Border#SwitchBackground">
         <Setter Property="Background" Value="{DynamicResource SukiPrimaryColor}" />

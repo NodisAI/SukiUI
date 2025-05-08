@@ -76,7 +76,6 @@ public class SukiTheme : Styles
     private readonly HashSet<SukiColorTheme> _colorThemeHashset = new();
     private readonly AvaloniaList<SukiColorTheme> _allThemes = new();
 
-
     public SukiTheme()
     {
         AvaloniaXamlLoader.Load(this);

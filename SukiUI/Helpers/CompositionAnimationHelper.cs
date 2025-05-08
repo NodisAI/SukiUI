@@ -1,3 +1,4 @@
+using Avalonia.Animation.Easings;
 using Avalonia.Rendering.Composition;
 
 namespace SukiUI.Helpers
@@ -23,7 +24,7 @@ namespace SukiUI.Helpers
             compositionVisual.ImplicitAnimations = implicitAnimationCollection;
         }
 
-        public static void MakeOpacityAnimated(this CompositionVisual? compositionVisual, double millis = 200)
+        public static void MakeOpacityAnimated(this CompositionVisual? compositionVisual, double millis = 200, Easing? easing = null)
         {
             if (compositionVisual == null) return;
 
@@ -32,12 +33,12 @@ namespace SukiUI.Helpers
 
             var opacityAnimation = compositor.CreateScalarKeyFrameAnimation();
             opacityAnimation.Target = "Opacity";
-            opacityAnimation.InsertExpressionKeyFrame(1.0f, "this.FinalValue");
+            opacityAnimation.InsertExpressionKeyFrame(1.0f, "this.FinalValue", easing);
             opacityAnimation.Duration = TimeSpan.FromMilliseconds(millis);
 
             var offsetAnimation = compositor.CreateVector3KeyFrameAnimation();
             offsetAnimation.Target = "Offset";
-            offsetAnimation.InsertExpressionKeyFrame(1.0f, "this.FinalValue");
+            offsetAnimation.InsertExpressionKeyFrame(1.0f, "this.FinalValue", easing);
             offsetAnimation.Duration = TimeSpan.FromMilliseconds(millis);
             animationGroup.Add(offsetAnimation);
             animationGroup.Add(opacityAnimation);
@@ -48,7 +49,7 @@ namespace SukiUI.Helpers
             compositionVisual.ImplicitAnimations = implicitAnimationCollection;
         }
 
-        public static void MakeSizeAnimated(this CompositionVisual? compositionVisual, double millis = 200)
+        public static void MakeSizeAnimated(this CompositionVisual? compositionVisual, double millis = 200, Easing? easing = null)
         {
             if (compositionVisual == null) return;
 
@@ -57,13 +58,14 @@ namespace SukiUI.Helpers
 
             var sizeAnimation = compositor.CreateVector2KeyFrameAnimation();
             sizeAnimation.Target = "Size";
-            sizeAnimation.InsertExpressionKeyFrame(1.0f, "this.FinalValue");
+            sizeAnimation.InsertExpressionKeyFrame(1.0f, "this.FinalValue", easing);
             sizeAnimation.Duration = TimeSpan.FromMilliseconds(millis);
 
             var offsetAnimation = compositor.CreateVector3KeyFrameAnimation();
             offsetAnimation.Target = "Offset";
-            offsetAnimation.InsertExpressionKeyFrame(1.0f, "this.FinalValue");
+            offsetAnimation.InsertExpressionKeyFrame(1.0f, "this.FinalValue", easing);
             offsetAnimation.Duration = TimeSpan.FromMilliseconds(millis);
+
             animationGroup.Add(sizeAnimation);
             animationGroup.Add(offsetAnimation);
 
