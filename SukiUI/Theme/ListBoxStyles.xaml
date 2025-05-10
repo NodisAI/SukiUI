@@ -41,22 +41,13 @@
                         BorderThickness="0"
                         ClipToBounds="{TemplateBinding ClipToBounds}"
                         CornerRadius="{TemplateBinding CornerRadius}">
-                    <Border.Resources>
-                        <theme:BiggestItemListBoxConverter x:Key="BiggestListItem" />
-                    </Border.Resources>
-                    <Panel>
-                        <ListBoxItem Margin="0,0,32,0"
-                                     Content="{TemplateBinding ItemsSource,
-                                                               Converter={StaticResource BiggestListItem}}"
-                                     Opacity="0" />
-                        <ScrollViewer Name="PART_ScrollViewer"
-                                      HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
-                                      VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}">
-                            <ItemsPresenter Name="PART_ItemsPresenter"
-                                            Margin="{TemplateBinding Padding}"
-                                            ItemsPanel="{TemplateBinding ItemsPanel}" />
-                        </ScrollViewer>
-                    </Panel>
+                    <ScrollViewer Name="PART_ScrollViewer"
+                                  HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
+                                  VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}">
+                        <ItemsPresenter Name="PART_ItemsPresenter"
+                                        Margin="{TemplateBinding Padding}"
+                                        ItemsPanel="{TemplateBinding ItemsPanel}" />
+                    </ScrollViewer>
                 </Border>
             </ControlTemplate>
         </Setter>
@@ -82,23 +73,14 @@
                         BorderThickness="0"
                         ClipToBounds="{TemplateBinding ClipToBounds}"
                         CornerRadius="{TemplateBinding CornerRadius}">
-                    <Border.Resources>
-                        <theme:BiggestItemListBoxConverter x:Key="BiggestListItem" />
-                    </Border.Resources>
-                    <Panel>
-                        <ListBoxItem Margin="0,0,32,0"
-                                     Content="{TemplateBinding ItemsSource,
-                                                               Converter={StaticResource BiggestListItem}}"
-                                     Opacity="0" />
-                        <ScrollViewer Name="PART_ScrollViewer"
-                                      Classes="Stack"
-                                      HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
-                                      VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}">
-                            <ItemsPresenter Name="PART_ItemsPresenter"
-                                            Margin="{TemplateBinding Padding}"
-                                            ItemsPanel="{TemplateBinding ItemsPanel}" />
-                        </ScrollViewer>
-                    </Panel>
+                    <ScrollViewer Name="PART_ScrollViewer"
+                                  Classes="Stack"
+                                  HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
+                                  VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}">
+                        <ItemsPresenter Name="PART_ItemsPresenter"
+                                        Margin="{TemplateBinding Padding}"
+                                        ItemsPanel="{TemplateBinding ItemsPanel}" />
+                    </ScrollViewer>
                 </Border>
             </ControlTemplate>
         </Setter>

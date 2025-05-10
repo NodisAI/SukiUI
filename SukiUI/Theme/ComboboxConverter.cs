@@ -50,30 +50,4 @@ namespace SukiUI.Theme
             throw new NotSupportedException();
         }
     }
-
-    public class BiggestItemListBoxConverter : IValueConverter
-    {
-        public static readonly BiggestItemConverter Instance = new();
-
-        public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
-        {
-            IEnumerable? x = (IEnumerable?)value;
-            if (x is null)
-                return "";
-
-            var s = "";
-            foreach (var o in x)
-            {
-                if (o?.ToString()?.Length > s.ToString().Length)
-                    s = o.ToString();
-            }
-
-            return s;
-        }
-
-        public object ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
-        {
-            throw new NotSupportedException();
-        }
-    }
 }

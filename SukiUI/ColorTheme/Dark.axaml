@@ -1,6 +1,6 @@
-﻿<ResourceDictionary
-    xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:system="clr-namespace:System;assembly=netstandard">
+﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=netstandard">
     <Color x:Key="SukiBackground">Transparent</Color>
     <Color x:Key="SukiStrongBackground">#353535</Color>
     <Color x:Key="SukiLightBackground">Transparent</Color>
@@ -11,8 +11,8 @@
     <Color x:Key="SukiControlTouchBackground">#505050</Color>
     <Color x:Key="SukiDialogBackground">#000000</Color>
 
-    <Color x:Key="SukiBorderBrush">#353535</Color>
-    <Color x:Key="SukiControlBorderBrush">#606060</Color>
+    <Color x:Key="SukiBorderBrush">#7D7D7D</Color>
+    <Color x:Key="SukiControlBorderBrush">#7D7D7D</Color>
     <Color x:Key="SukiMediumBorderBrush">#555555</Color>
     <Color x:Key="SukiLightBorderBrush">#454545</Color>
     <Color x:Key="SukiMenuBorderBrush">#454545</Color>
@@ -29,10 +29,8 @@
     <BoxShadows x:Key="SukiBigPopupShadow">1 4 17 0 #111111</BoxShadows>
 
     <LinearGradientBrush x:Key="PopupGradientBrush" StartPoint="0%,0%" EndPoint="100%,100%">
-        <GradientStop Offset="0" Color="{DynamicResource SukiPrimaryColor3}">
-        </GradientStop>
-        <GradientStop Offset="0.9" Color="{DynamicResource SukiPrimaryColor10}">
-        </GradientStop>
+        <GradientStop Offset="0" Color="{DynamicResource SukiPrimaryColor3}" />
+        <GradientStop Offset="0.9" Color="{DynamicResource SukiPrimaryColor10}" />
 
     </LinearGradientBrush>
 

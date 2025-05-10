@@ -1,54 +1,54 @@
-<ResourceDictionary
-    xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:controls="clr-namespace:SukiUI.Controls" xmlns:suki="https://github.com/kikipoulet/SukiUI"
-    xmlns:theme="clr-namespace:SukiUI.Theme">
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="clr-namespace:SukiUI.Controls"
+                    xmlns:suki="https://github.com/kikipoulet/SukiUI"
+                    xmlns:theme="clr-namespace:SukiUI.Theme">
     <ControlTheme x:Key="SukiButtonStyle" TargetType="Button">
-        <Setter Property="BorderThickness" Value="1.2"/>
-        <Setter Property="BorderBrush" Value="{DynamicResource SukiMediumBorderBrush}"/>
-        <Setter Property="CornerRadius" Value="{DynamicResource SmallCornerRadius}"/>
-        <Setter Property="Background" Value="{DynamicResource SukiBackground}"/>
-        <Setter Property="VerticalContentAlignment" Value="Center"/>
-        <Setter Property="HorizontalContentAlignment" Value="Center"/>
-        <Setter Property="FontSize" Value="15"/>
-        <Setter Property="Padding" Value="20,8"/>
+        <Setter Property="BorderThickness" Value="1.2" />
+        <Setter Property="BorderBrush" Value="{DynamicResource SukiMediumBorderBrush}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource SmallCornerRadius}" />
+        <Setter Property="Background" Value="{DynamicResource SukiBackground}" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="FontSize" Value="15" />
+        <Setter Property="Padding" Value="20,8" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Border
-                    Name="RootBorder"
-                    Padding="{TemplateBinding Padding}"
-                    Background="{TemplateBinding Background}"
-                    BorderBrush="{TemplateBinding BorderBrush}"
-                    BorderThickness="{TemplateBinding BorderThickness}"
-                    CornerRadius="{TemplateBinding CornerRadius}"
-                    TextElement.Foreground="{TemplateBinding Foreground}">
+                <Border Name="RootBorder"
+                        Padding="{TemplateBinding Padding}"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}"
+                        TextElement.Foreground="{TemplateBinding Foreground}">
                     <Border.Transitions>
                         <Transitions>
-                            <DoubleTransition Property="Opacity" Duration="0:0:0.35"/>
+                            <DoubleTransition Property="Opacity" Duration="0:0:0.35" />
                         </Transitions>
                     </Border.Transitions>
 
                     <StackPanel HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Orientation="Horizontal">
-                        <Viewbox
-                            Width="{TemplateBinding theme:ButtonExtensions.ShowProgress, Converter={x:Static suki:ButtonExtensionBoolToWidthConverter.Instance}}"
-                            Height="24" Margin="0,-5">
+                        <Viewbox Width="{TemplateBinding theme:ButtonExtensions.ShowProgress,
+                                                         Converter={x:Static suki:ButtonExtensionBoolToWidthConverter.Instance}}"
+                                 Height="24"
+                                 Margin="0,-5">
                             <Viewbox.Transitions>
                                 <Transitions>
-                                    <DoubleTransition Property="Width" Duration="0:0:0.3"/>
+                                    <DoubleTransition Property="Width" Duration="0:0:0.3" />
                                 </Transitions>
                             </Viewbox.Transitions>
 
-                            <ContentPresenter Content="{TemplateBinding theme:ButtonExtensions.ShowProgress, Converter={x:Static suki:ProgressToContentConverter.Instance}}"/>
+                            <ContentPresenter Content="{TemplateBinding theme:ButtonExtensions.ShowProgress, Converter={x:Static suki:ProgressToContentConverter.Instance}}" />
                         </Viewbox>
 
-                        <ContentPresenter
-                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                            Foreground="{TemplateBinding Foreground}"
-                            Content="{TemplateBinding Content}"
-                            FontFamily="{TemplateBinding FontFamily}"
-                            FontSize="{TemplateBinding FontSize}"
-                            FontWeight="{DynamicResource DefaultDemiBold}"
-                            RecognizesAccessKey="True"/>
+                        <ContentPresenter HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                          Content="{TemplateBinding Content}"
+                                          FontFamily="{TemplateBinding FontFamily}"
+                                          FontSize="{TemplateBinding FontSize}"
+                                          FontWeight="{DynamicResource DefaultDemiBold}"
+                                          Foreground="{TemplateBinding Foreground}"
+                                          RecognizesAccessKey="True" />
                     </StackPanel>
                 </Border>
             </ControlTemplate>
@@ -56,44 +56,44 @@
 
         <Setter Property="Transitions">
             <Transitions>
-                <BrushTransition Property="Background" Duration="0:0:0.35"/>
-                <DoubleTransition Property="Opacity" Duration="0:0:0.35"/>
+                <BrushTransition Property="Background" Duration="0:0:0.35" />
+                <DoubleTransition Property="Opacity" Duration="0:0:0.35" />
             </Transitions>
         </Setter>
 
         <!--  Nested Selectors For Basic Button  -->
         <Style Selector="^ /template/ TextBlock">
-            <Setter Property="FontSize" Value="15"/>
-            <Setter Property="FontWeight" Value="{DynamicResource DefaultDemiBold}"/>
+            <Setter Property="FontSize" Value="15" />
+            <Setter Property="FontWeight" Value="{DynamicResource DefaultDemiBold}" />
         </Style>
         <Style Selector="^ /template/ controls|Loading">
-            <Setter Property="Foreground" Value="{TemplateBinding Foreground}"/>
+            <Setter Property="Foreground" Value="{TemplateBinding Foreground}" />
         </Style>
 
         <Style Selector="^ /template/ Border">
             <Setter Property="Transitions">
                 <Transitions>
-                    <BrushTransition Property="BorderBrush" Duration="0:0:0.3"/>
-                    <BrushTransition Property="Background" Duration="0:0:0.3"/>
+                    <BrushTransition Property="BorderBrush" Duration="0:0:0.3" />
+                    <BrushTransition Property="Background" Duration="0:0:0.3" />
                 </Transitions>
             </Setter>
         </Style>
 
         <Style Selector="^:disabled /template/ Border#RootBorder">
-            <Setter Property="Opacity" Value="0.5"/>
+            <Setter Property="Opacity" Value="0.5" />
         </Style>
 
         <!--  Events For Basic Button  -->
         <Style Selector="^:pointerover">
-            <Setter Property="Opacity" Value="0.85"/>
+            <Setter Property="Opacity" Value="0.85" />
         </Style>
 
         <Style Selector="^:pressed">
-            <Setter Property="Opacity" Value="0.75"/>
+            <Setter Property="Opacity" Value="0.75" />
             <Style Selector="^ /template/ Border">
                 <Setter Property="RenderTransform">
                     <Setter.Value>
-                        <ScaleTransform ScaleX="0.97" ScaleY="0.97"/>
+                        <ScaleTransform ScaleX="0.97" ScaleY="0.97" />
                     </Setter.Value>
                 </Setter>
             </Style>
@@ -101,7 +101,7 @@
             <Style Selector="^.Icon /template/ Border">
                 <Setter Property="RenderTransform">
                     <Setter.Value>
-                        <ScaleTransform ScaleX="0.95" ScaleY="0.95"/>
+                        <ScaleTransform ScaleX="0.95" ScaleY="0.95" />
                     </Setter.Value>
                 </Setter>
             </Style>
@@ -113,7 +113,7 @@
                 <Style Selector="^ /template/ Border">
                     <Setter Property="RenderTransform">
                         <Setter.Value>
-                            <ScaleTransform ScaleX="1" ScaleY="1"/>
+                            <ScaleTransform ScaleX="1" ScaleY="1" />
                         </Setter.Value>
                     </Setter>
                 </Style>
@@ -126,7 +126,7 @@
                 <Style Selector="^ /template/ Border">
                     <Setter Property="RenderTransform">
                         <Setter.Value>
-                            <ScaleTransform ScaleX="0.97" ScaleY="0.97"/>
+                            <ScaleTransform ScaleX="0.97" ScaleY="0.97" />
                         </Setter.Value>
                     </Setter>
                 </Style>
@@ -134,7 +134,7 @@
                 <Style Selector="^.Icon /template/ Border">
                     <Setter Property="RenderTransform">
                         <Setter.Value>
-                            <ScaleTransform ScaleX="0.95" ScaleY="0.95"/>
+                            <ScaleTransform ScaleX="0.95" ScaleY="0.95" />
                         </Setter.Value>
                     </Setter>
                 </Style>
@@ -142,30 +142,30 @@
         </Style>
 
         <Style Selector="^.Basic">
-            <Setter Property="BorderThickness" Value="0"/>
-            <Setter Property="BorderBrush" Value="Transparent"/>
-            <Setter Property="Padding" Value="11,8"/>
-            <Setter Property="CornerRadius" Value="5"/>
-            <Setter Property="Background" Value="Transparent"/>
-            <Setter Property="Foreground" Value="{DynamicResource SukiPrimaryColor}"/>
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="BorderBrush" Value="Transparent" />
+            <Setter Property="Padding" Value="11,8" />
+            <Setter Property="CornerRadius" Value="5" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Foreground" Value="{DynamicResource SukiPrimaryColor}" />
 
             <!--  Events  -->
             <Style Selector="^:pointerover">
                 <Style Selector="^ /template/ Border">
                     <Setter Property="RenderTransform">
                         <Setter.Value>
-                            <ScaleTransform ScaleX="1.03" ScaleY="1.03"/>
+                            <ScaleTransform ScaleX="1.03" ScaleY="1.03" />
                         </Setter.Value>
                     </Setter>
                 </Style>
             </Style>
 
             <Style Selector="^.Icon:pointerover">
-                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="Background" Value="Transparent" />
                 <Style Selector="^ /template/ Border">
                     <Setter Property="RenderTransform">
                         <Setter.Value>
-                            <ScaleTransform ScaleX="1.07" ScaleY="1.07"/>
+                            <ScaleTransform ScaleX="1.07" ScaleY="1.07" />
                         </Setter.Value>
                     </Setter>
                 </Style>
@@ -173,165 +173,158 @@
 
             <!--  Color Variants  -->
             <Style Selector="^.Accent">
-                <Setter Property="Foreground" Value="{DynamicResource SukiAccentColor}"/>
+                <Setter Property="Foreground" Value="{DynamicResource SukiAccentColor}" />
             </Style>
         </Style>
 
         <Style Selector="^.Void">
-            <Setter Property="BorderThickness" Value="0"/>
-            <Setter Property="BorderBrush" Value="Transparent"/>
-            <Setter Property="Padding" Value="0"/>
-            <Setter Property="CornerRadius" Value="5"/>
-            <Setter Property="Margin" Value="0"/>
-            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="BorderBrush" Value="Transparent" />
+            <Setter Property="Padding" Value="0" />
+            <Setter Property="CornerRadius" Value="5" />
+            <Setter Property="Margin" Value="0" />
+            <Setter Property="Background" Value="Transparent" />
 
             <!--  Nested Selectors  -->
             <Style Selector="^ /template/ Border">
-                <Setter Property="BoxShadow" Value="0 0 0 0 Transparent"/>
+                <Setter Property="BoxShadow" Value="0 0 0 0 Transparent" />
             </Style>
 
             <!--  Events  -->
             <Style Selector="^:pointerover /template/ Border">
                 <Setter Property="RenderTransform">
                     <Setter.Value>
-                        <ScaleTransform ScaleX="1.03" ScaleY="1.03"/>
+                        <ScaleTransform ScaleX="1.03" ScaleY="1.03" />
                     </Setter.Value>
                 </Setter>
             </Style>
         </Style>
 
         <Style Selector="^.Flat">
-            <Setter Property="BorderThickness" Value="0"/>
-            <Setter Property="Background" Value="{DynamicResource SukiPrimaryColor}"/>
-            <Setter Property="Foreground" Value="{DynamicResource SukiText}"/>
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Background" Value="{DynamicResource SukiPrimaryColor}" />
+            <Setter Property="Foreground" Value="{DynamicResource SukiText}" />
             <Setter Property="Transitions">
                 <Transitions>
-                    <BrushTransition Property="Background" Duration="0:0:0.2"/>
+                    <BrushTransition Property="Background" Duration="0:0:0.2" />
                 </Transitions>
             </Setter>
 
             <!--  Color Variants  -->
             <Style Selector="^.Accent">
-                <Setter Property="Background" Value="{DynamicResource SukiAccentColor75}"/>
+                <Setter Property="Background" Value="{DynamicResource SukiAccentColor75}" />
             </Style>
         </Style>
 
         <Style Selector="^.Outlined">
-            <Setter Property="BorderThickness" Value="1"/>
-            <Setter Property="BorderBrush" Value="{DynamicResource SukiPrimaryColor}"/>
-            <Setter Property="Background" Value="Transparent"/>
-            <Setter Property="Foreground" Value="{DynamicResource SukiPrimaryColor}"/>
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="BorderBrush" Value="{DynamicResource SukiPrimaryColor}" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Foreground" Value="{DynamicResource SukiPrimaryColor}" />
             <Setter Property="Transitions">
                 <Transitions>
-                    <BrushTransition Property="Background" Duration="0:0:0.3"/>
-                    <BrushTransition Property="BorderBrush" Duration="0:0:0.3"/>
+                    <BrushTransition Property="Background" Duration="0:0:0.3" />
+                    <BrushTransition Property="BorderBrush" Duration="0:0:0.3" />
                 </Transitions>
             </Setter>
 
             <!--  Color Variants  -->
             <Style Selector="^.Accent">
-                <Setter Property="Foreground" Value="{DynamicResource SukiAccentColor}"/>
-                <Setter Property="BorderBrush" Value="{DynamicResource SukiAccentColor}"/>
+                <Setter Property="Foreground" Value="{DynamicResource SukiAccentColor}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource SukiAccentColor}" />
             </Style>
         </Style>
 
         <Style Selector="^.Success">
-            <Setter Property="Background" Value="#cdf2ca"/>
-            <Setter Property="BorderBrush" Value="#b2e1ae"/>
-            <Setter Property="Foreground" Value="#13831c"/>
-            <Style Selector="^ /template/ TextBlock">
-                <Setter Property="Foreground" Value="#13831c"/>
-            </Style>
+            <Setter Property="Background" Value="#cdf2ca" />
+            <Setter Property="BorderBrush" Value="#b2e1ae" />
+            <Setter Property="Foreground" Value="#13831c" />
             <Style Selector="^:pointerover /template/ Border">
-                <Setter Property="Background" Value="#d7f5db"/>
+                <Setter Property="Background" Value="#d7f5db" />
             </Style>
             <Style Selector="^:pressed /template/ Border">
-                <Setter Property="Background" Value="#d7f5db"/>
+                <Setter Property="Background" Value="#d7f5db" />
             </Style>
         </Style>
 
         <Style Selector="^.Danger">
-            <Setter Property="Background" Value="#f2caca"/>
-            <Setter Property="BorderBrush" Value="#e4b5b5"/>
-            <Setter Property="Foreground" Value="#831313"/>
-            <Style Selector="^ /template/ TextBlock">
-                <Setter Property="Foreground" Value="#831313"/>
-            </Style>
+            <Setter Property="Background" Value="#f2caca" />
+            <Setter Property="BorderBrush" Value="#e4b5b5" />
+            <Setter Property="Foreground" Value="#831313" />
             <Style Selector="^:pointerover /template/ Border">
-                <Setter Property="Background" Value="#f5d7d7"/>
+                <Setter Property="Background" Value="#f5d7d7" />
             </Style>
             <Style Selector="^:pressed /template/ Border">
-                <Setter Property="Background" Value="#f5d7d7"/>
+                <Setter Property="Background" Value="#f5d7d7" />
             </Style>
         </Style>
 
         <Style Selector="^.Rounded">
-            <Setter Property="CornerRadius" Value="100"/>
+            <Setter Property="CornerRadius" Value="100" />
         </Style>
 
         <Style Selector="^.Card">
-            <Setter Property="Padding" Value="20"/>
-            <Setter Property="CornerRadius" Value="{DynamicResource MediumCornerRadius}"/>
-            <Setter Property="BorderThickness" Value="1.5"/>
-            <Setter Property="BorderBrush" Value="{DynamicResource SukiLightBorderBrush}"/>
-            <Setter Property="Background" Value="{DynamicResource SukiCardBackground}"/>
-            <Setter Property="Margin" Value="7"/>
+            <Setter Property="Padding" Value="20" />
+            <Setter Property="CornerRadius" Value="{DynamicResource MediumCornerRadius}" />
+            <Setter Property="BorderThickness" Value="1.5" />
+            <Setter Property="BorderBrush" Value="{DynamicResource SukiLightBorderBrush}" />
+            <Setter Property="Background" Value="{DynamicResource SukiCardBackground}" />
+            <Setter Property="Margin" Value="7" />
             <Setter Property="Template">
                 <ControlTemplate>
-                    <ContentPresenter
-                        Name="PART_ContentPresenter" Margin="7"
-                        Padding="{TemplateBinding Padding}"
-                        HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                        VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                        Background="{TemplateBinding Background}"
-                        BorderBrush="{TemplateBinding BorderBrush}"
-                        BorderThickness="{TemplateBinding BorderThickness}"
-                        Content="{TemplateBinding Content}"
-                        ContentTemplate="{TemplateBinding ContentTemplate}"
-                        CornerRadius="{TemplateBinding CornerRadius}"
-                        RecognizesAccessKey="True"
-                        TextElement.Foreground="{TemplateBinding Foreground}"/>
+                    <ContentPresenter Name="PART_ContentPresenter"
+                                      Margin="7"
+                                      Padding="{TemplateBinding Padding}"
+                                      HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                      VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                      Background="{TemplateBinding Background}"
+                                      BorderBrush="{TemplateBinding BorderBrush}"
+                                      BorderThickness="{TemplateBinding BorderThickness}"
+                                      Content="{TemplateBinding Content}"
+                                      ContentTemplate="{TemplateBinding ContentTemplate}"
+                                      CornerRadius="{TemplateBinding CornerRadius}"
+                                      RecognizesAccessKey="True"
+                                      TextElement.Foreground="{TemplateBinding Foreground}" />
                 </ControlTemplate>
             </Setter>
         </Style>
 
         <Style Selector="^.WindowControlsButton">
-            <Setter Property="BorderThickness" Value="0"/>
-            <Setter Property="CornerRadius" Value="0"/>
-            <Setter Property="Width" Value="48"/>
-            <Setter Property="Height" Value="40"/>
-            <Setter Property="Cursor" Value="Hand"/>
-            <Setter Property="Background" Value="{DynamicResource SukiPrimaryColor0}"/>
-            <Setter Property="Padding" Value="0"/>
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="CornerRadius" Value="0" />
+            <Setter Property="Width" Value="48" />
+            <Setter Property="Height" Value="40" />
+            <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="Background" Value="{DynamicResource SukiPrimaryColor0}" />
+            <Setter Property="Padding" Value="0" />
             <Setter Property="Transitions">
                 <Transitions>
-                    <BrushTransition Property="Background" Duration="0.01"/>
+                    <BrushTransition Property="Background" Duration="0.01" />
                 </Transitions>
             </Setter>
             <Style Selector="^:pointerover">
-                <Setter Property="Background" Value="{DynamicResource SukiPrimaryColor25}"/>
+                <Setter Property="Background" Value="{DynamicResource SukiPrimaryColor25}" />
             </Style>
             <Style Selector="^.Close">
-                <Setter Property="Background" Value="{DynamicResource SukiAccentColor0}"/>
+                <Setter Property="Background" Value="{DynamicResource SukiAccentColor0}" />
                 <Style Selector="^:pointerover">
-                    <Setter Property="Background" Value="{DynamicResource SukiAccentColor25}"/>
+                    <Setter Property="Background" Value="{DynamicResource SukiAccentColor25}" />
                 </Style>
             </Style>
         </Style>
         <Style Selector="^.Large">
-            <Setter Property="FontSize" Value="18"/>
-            <Setter Property="Padding" Value="30,12"/>
-            <Setter Property="CornerRadius" Value="9"/>
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="Padding" Value="30,12" />
+            <Setter Property="CornerRadius" Value="9" />
         </Style>
         <Style Selector="^.Icon">
-            <Setter Property="CornerRadius" Value="100"/>
-            <Setter Property="Width" Value="40"/>
-            <Setter Property="Height" Value="40"/>
-            <Setter Property="Padding" Value="0"/>
+            <Setter Property="CornerRadius" Value="100" />
+            <Setter Property="Width" Value="40" />
+            <Setter Property="Height" Value="40" />
+            <Setter Property="Padding" Value="0" />
         </Style>
     </ControlTheme>
-    <ControlTheme
-        x:Key="{x:Type Button}"
-        BasedOn="{StaticResource SukiButtonStyle}"
-        TargetType="Button"/>
+    <ControlTheme x:Key="{x:Type Button}"
+                  BasedOn="{StaticResource SukiButtonStyle}"
+                  TargetType="Button" />
 </ResourceDictionary>
