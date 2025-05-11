@@ -308,7 +308,8 @@
             <Style Selector="^.Close">
                 <Setter Property="Background" Value="{DynamicResource SukiAccentColor0}" />
                 <Style Selector="^:pointerover">
-                    <Setter Property="Background" Value="{DynamicResource SukiAccentColor25}" />
+                    <Setter Property="Background" Value="#C42B1C" />
+                    <Setter Property="Foreground" Value="White" />
                 </Style>
             </Style>
         </Style>
